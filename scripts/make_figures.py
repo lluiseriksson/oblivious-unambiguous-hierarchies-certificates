@@ -69,7 +69,7 @@ def make_fig2() -> None:
 
     x = list(range(len(labels)))
     w = 0.26
-    ax1.bar([i - w for i in x], depths, width=w, color="#1b4f72", label=r"Thm. 5.1 round cap $d$")
+    ax1.bar([i - w for i in x], depths, width=w, color="#1b4f72", label=r"Round cap $d(0+1)=d$")
     ax1.bar(x, rounds, width=w, color="#148f77", label="Actual generator rounds")
     ax1.bar([i + w for i in x], tot_s, width=w, color="#d35400", label=r"Final $|S|$ witnesses")
     ax1.set_xticks(x)

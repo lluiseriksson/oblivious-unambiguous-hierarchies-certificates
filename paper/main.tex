@@ -22,6 +22,7 @@
 
 \newtheorem{proposition}{Proposition}
 \newcommand{\NP}{\mathsf{NP}}
+\newcommand{\NN}{\mathbb{N}}
 \newcommand{\ONP}{\mathsf{ONP}}
 \newcommand{\OUP}{\mathsf{OUP}}
 \newcommand{\SOUP}{\mathsf{SOUP}}
@@ -46,8 +47,8 @@ Edward A.\ Hirsch (\texttt{arXiv:2611.33126}, Nov.\ 2026) analyzed input-oblivio
 Input-oblivious complexity classes restrict nondeterministic witnesses to depend only on input length $n$~\cite{hirsch2026inputoblivious}, providing a uniform bridge toward $\mathsf{P}/\mathsf{poly}$ and Karp--Lipton collapses~\cite{hirsch2026ultimate}. Extending the loose unambiguous hierarchy $\mathsf{prUH}^\bullet$ of Hirsch and Sokolov~\cite{hirsch2015probabilistic}, Hirsch~\cite{hirsch2026note} established four structural pillars for the input-oblivious unambiguous hierarchies $\OUH$ and $\OUH^\bullet$:
 \begin{enumerate}[leftmargin=*,nosep]
   \item \textbf{Canonical Lex-Max Advice (Lem.~3.1, Cor.~3.2):} Adapting Krentel~\cite{krentel1988complexity} and K\"obler--Thierauf~\cite{kobler1994complexity}, the lexicographically largest feasible run encoding $a_n$ is unique, recoverable bit-by-bit by $\mathsf{FP}^{\ONP}$ prefix search, and uniquely certified by a $\mathsf{co}\text{-}\ONP$ tester, proving $\OGTD[\NP] = \OUGTD[\mathsf{FP}^{\ONP}, \mathsf{co}\text{-}\ONP, \mathsf{P}] = \mathsf{P}/\mathsf{OptP}$.
-  \item \textbf{Mahaney Census \& Tally Extraction (Lem.~2.8, Thm.~4.1):} Knowing the exact tally census $c_m = |C_m|$ eliminates tally $\NP$ oracles via Cantor pairing $\pi(m, c)$, enabling bit-by-bit oblivious witness extraction and proving $\OUH \subseteq \mathsf{P}^{\mathsf{TALLY}\cap\NP} \subseteq \mathsf{P}^{\ONP}_\parallel$.
-  \item \textbf{Loose Promise-Oracle Tower Generator (Thm.~5.1):} Generalizing Hartmanis--Hemachandra~\cite{hartmanis1990robust} and Spakowski--Tripathi~\cite{spakowski2007power} to non-robust loose promise towers, maintaining candidate witness sets $S = (S_{i,m})$ forces every disagreement round to uncover at least one missing true oblivious witness $w_{i,m}$, terminating within $d(h+1)$ rounds and placing $\OUH^\bullet \subseteq \OGTD[\NP] \subseteq \OUM \cap \mathsf{P}^{\ONP}$.
+  \item \textbf{Mahaney Census \& Tally Extraction (Lem.~2.8, Thm.~4.1):} Knowing the exact tally census $c_m = |C_m|$ eliminates tally $\NP$ oracles via Cantor pairing $\pi(a, b) = (a+b)(a+b+1)/2 + b$ (instantiated at $(m, c_m)$), enabling bit-by-bit oblivious witness extraction and proving $\OUH \subseteq \mathsf{P}^{\mathsf{TALLY}\cap\NP} \subseteq \mathsf{P}^{\ONP}_\parallel$.
+  \item \textbf{Loose Promise-Oracle Tower Generator (Thm.~5.1):} Generalizing Hartmanis--Hemachandra~\cite{hartmanis1990robust} and Spakowski--Tripathi~\cite{spakowski2007power} to non-robust loose promise towers of depth $d$ with query lengths $m \in \{0, \dots, h\}$, maintaining candidate witness sets $S = (S_{i,m})$ forces every disagreement round to uncover at least one missing true oblivious witness $w_{i,m}$ among the $d(h+1)$ target $(i,m)$ slots, terminating within $d(h+1)$ rounds (specializing to $d$ rounds in single-length finite towers with $h=0$, i.e., one witness length per level) and placing $\OUH^\bullet \subseteq \OGTD[\NP] \subseteq \OUM \cap \mathsf{P}^{\ONP}$.
   \item \textbf{Dot-Operator Collapse, Single Queries, \& $\SOUP$ (Sec.~6):} Probing $(0^n, 0^p)$ and $(0^n, 1^p)$ collapses $\exists^{\mathrm{ou}}\!\cdot\!\mathsf{co}\text{-}\OUP = \OUP \cup \mathsf{co}\text{-}\OUP$ (Thm.~6.2, Cor.~6.3); single loose queries are guarded whenever their answer matters~\cite{cai1993promises} (Lem.~6.4, Thm.~6.5); and testing $0^n$ yields $\SOUP = \OUP \cap \mathsf{co}\text{-}\OUP$ (Prop.~6.6).
 \end{enumerate}
 
@@ -61,48 +62,50 @@ We do not formalize polynomial-time Turing-machine runtime bounds inside Lean~4;
 \section{Constructive Lean~4.35.0 Kernel}\label{sec:lean}
 The standalone module \texttt{ObliviousUnambiguous.lean} (in \texttt{lean/}) compiles cleanly under Lean~4.35.0 in under one second with zero external dependencies, zero warnings, and zero \texttt{sorry}. Auditing all 18 theorems via \texttt{\#print axioms} (\texttt{AuditAxioms.lean}) confirms 8 zero-axiom theorems (\texttt{none}), 4 using only \texttt{[propext]}, 6 using \texttt{[propext, Quot.sound]}, and \textbf{0} using \texttt{Classical.choice} or \texttt{Lean.ofReduceBool} (Table~\ref{tab:lean}).
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
-\caption{All 18 machine-checked Lean~4.35.0 theorems in \texttt{ObliviousUnambiguous.lean} (zero \texttt{sorry}, zero \texttt{Classical.choice}).}
+\caption{All 18 machine-checked Lean~4.35.0 theorems in \texttt{ObliviousUnambiguous.lean} (0~\texttt{sorry}, 0~warnings, 0~\texttt{Classical.choice}), showing exact formalized statements, references to Hirsch~\cite{hirsch2026note}, and \texttt{\#print axioms} footprints.}
 \label{tab:lean}
-\scriptsize
-\setlength{\tabcolsep}{1.8pt}
-\begin{tabular}{@{}rlll@{}}
+\resizebox{\textwidth}{!}{%
+\footnotesize
+\setlength{\tabcolsep}{3.0pt}
+\begin{tabular}{@{}rllll@{}}
 \toprule
-\# & Lean Theorem Identifier & Paper Ref. & Axioms \\
+\# & Lean~4 Theorem Identifier & Exact Formalized Statement / Inductive Type & Ref.~\cite{hirsch2026note} & Axioms \\
 \midrule
-1 & \texttt{lex\_lt\_irrefl\_and\_asymm} & Sec.~2.1, 3 & \texttt{p} \\
-2 & \texttt{canonical\_advice\_unique} & Lem.~3.1 & \texttt{p} \\
-3 & \texttt{prefix\_search\_bit\_recovery} & Lem.~3.1 & \texttt{p} \\
-4 & \texttt{co\_onp\_tester\_singleton} & Lem.~3.1 & \texttt{p} \\
-5 & \texttt{mahaney\_census\_exact\_subset} & Lem.~2.8 & \texttt{p, Q} \\
-6 & \texttt{cantor\_pairing\_injective} & Sec.~2.1 & \texttt{p, Q} \\
-7 & \texttt{oblivious\_witness\_bit\_extraction} & Thm.~4.1 & \texttt{none} \\
-8 & \texttt{oblivious\_empty\_slice\_default\_zero} & Thm.~4.1 & \texttt{none} \\
-9 & \texttt{loose\_tower\_round\_bound} & Thm.~5.1 & \texttt{p, Q} \\
-10 & \texttt{loose\_tower\_disagreement\_descent} & Thm.~5.1 & \texttt{p, Q} \\
-11 & \texttt{loose\_generator\_set\_growth\_monotone} & Thm.~5.1 & \texttt{p, Q} \\
-12 & \texttt{dot\_op\_co\_oup\_probe\_refutation} & Thm.~6.2 & \texttt{p, Q} \\
-13 & \texttt{dot\_op\_collapse\_unique\_pair} & Thm.~6.2 & \texttt{none} \\
-14 & \texttt{dot\_op\_hierarchy\_idempotence} & Cor.~6.3 & \texttt{none} \\
-15 & \texttt{single\_loose\_query\_guarded} & Lem.~6.4 & \texttt{none} \\
-16 & \texttt{input\_tagging\_preserves\_obliviousness} & Thm.~6.5 & \texttt{none} \\
-17 & \texttt{soup\_unique\_bit\_witness} & Prop.~6.6 & \texttt{none} \\
-18 & \texttt{class\_containment\_chain\_complete} & Fig.~1 & \texttt{none} \\
+1 & \texttt{lex\_lt\_irrefl\_and\_asymm} & $\forall a,b:\texttt{List Bool},\; \texttt{lexLt}\;a\;a=\mathrm{false} \land (\texttt{lexLt}\;a\;b\to \neg\texttt{lexLt}\;b\;a)$ & Sec.~2.1, 3 & \texttt{p} \\
+2 & \texttt{canonical\_advice\_unique} & $|a|=|b|, R(a)=R(b)=\mathrm{true}, \text{both lex-max} \Rightarrow a = b$ & Lem.~3.1 & \texttt{p} \\
+3 & \texttt{prefix\_search\_bit\_recovery} & $\texttt{lexGe}(\mathit{pref}\mathbin{+\!+}(b::\mathit{rest}),\,\texttt{buildPrefixProbe}\;\mathit{pref}\;|\mathit{rest}|) \leftrightarrow b=\mathrm{true}$ & Lem.~3.1 & \texttt{p} \\
+4 & \texttt{co\_onp\_tester\_singleton} & $R(a_n) \land \text{lex-max}(a_n) \Rightarrow \forall x\,(|x|=|a_n| \to (T(x) \leftrightarrow x = a_n))$ & Lem.~3.1 & \texttt{p} \\
+5 & \texttt{mahaney\_census\_exact\_subset} & $\texttt{countPred}(\lambda x.\,C(x)\land x\in_{\mathrm{b}} S)\;U = \texttt{countPred}\;C\;U \Rightarrow \forall x\in U,\, C(x)\to x\in_{\mathrm{b}} S$ & Lem.~2.8 & \texttt{p, Q} \\
+6 & \texttt{cantor\_pairing\_injective} & $\forall a_1,b_1,a_2,b_2:\NN,\; \pi(a_1,b_1)=\pi(a_2,b_2) \Rightarrow a_1=a_2 \land b_1=b_2$ & Sec.~2.1 & \texttt{p, Q} \\
+7 & \texttt{oblivious\_witness\_bit\_extraction} & $(\exists x, V\,x\,w_n) \land \text{uniq}(w_n) \Rightarrow (\exists x\,w, V\,x\,w \land \texttt{bit}\;i\;w) \leftrightarrow \texttt{bit}\;i\;w_n$ & Thm.~4.1 & \texttt{none} \\
+8 & \texttt{oblivious\_empty\_slice\_default\_zero} & $(\forall x\,w, V\,x\,w=\mathrm{false}) \Rightarrow \neg\exists x\,w,\, V\,x\,w \land \texttt{bit}\;i\;w$ & Thm.~4.1 & \texttt{none} \\
+9 & \texttt{loose\_tower\_round\_bound} & $\mathit{rounds} \le \mathit{found} \land \mathit{found} \le d(h+1) \Rightarrow \mathit{rounds} \le d(h+1)$ & Thm.~5.1 & \texttt{p, Q} \\
+10 & \texttt{loose\_tower\_disagreement\_descent} & $\neg\mathrm{Wrong}(0) \land (\forall j,\mathrm{Wrong}(j{+}1)\to \mathrm{Miss}(j{+}1)\lor \mathrm{Wrong}(j)) \Rightarrow \mathrm{Wrong}(d)\to \exists j\in[1,d],\mathrm{Miss}(j)$ & Thm.~5.1 & \texttt{p, Q} \\
+11 & \texttt{loose\_generator\_set\_growth\_monotone} & $1\le h_1\le h_2 \land M_1\le M_2 \Rightarrow 1\le h_1(M_1+1)\le h_2(M_2+1)$ & Thm.~5.1 & \texttt{p, Q} \\
+12 & \texttt{dot\_op\_co\_oup\_probe\_refutation} & $p\ge 1 \land \text{at-most-1}(R_0) \Rightarrow R_0(0^p)=\mathrm{false} \lor R_0(1^p)=\mathrm{false}$ & Thm.~6.2 & \texttt{p, Q} \\
+13 & \texttt{dot\_op\_collapse\_unique\_pair} & Unique inner probe $v_N$ + outer $w_n \Rightarrow \mathrm{Acc}(x,(w,v)) \leftrightarrow (L(x)\land w{=}w_n\land v{=}v_N)$ & Thm.~6.2 & \texttt{none} \\
+14 & \texttt{dot\_op\_hierarchy\_idempotence} & On 4-element \texttt{DotClass}: $\exists^{\mathrm{ou}}\!\cdot\!\mathrm{coOUP}=\mathrm{Union}$, $\exists^{\mathrm{ou}}\forall^{\mathrm{ou}}\exists^{\mathrm{ou}} c = \forall^{\mathrm{ou}}\exists^{\mathrm{ou}} c$ & Cor.~6.3 & \texttt{none} \\
+15 & \texttt{single\_loose\_query\_guarded} & $V_{\mathrm{ans}}(\mathrm{false})\neq V_{\mathrm{ans}}(\mathrm{true}) \land \text{neg-corr} \land \text{pos-uniq} \Rightarrow \mathrm{False}$ & Lem.~6.4 & \texttt{none} \\
+16 & \texttt{input\_tagging\_preserves\_obliviousness} & $\mathrm{qlen}(xw)=\mathrm{lenMap}(\mathrm{tlen}(xw)) \land \text{uniq-on-}T \Rightarrow \text{same }\mathrm{tlen} \implies w_1=w_2$ & Thm.~6.5 & \texttt{none} \\
+17 & \texttt{soup\_unique\_bit\_witness} & Unique $w_Y$ if $L_0$, unique $w_Z$ if $\neg L_0 \Rightarrow \exists!(b_0,w_0)$ for combined probe & Prop.~6.6 & \texttt{none} \\
+18 & \texttt{class\_containment\_chain\_complete} & Reflexive-transitive closure \texttt{Fig1Sub} of the 9 abstract edges in~\cite{hirsch2026note} Fig.~1 & Fig.~1~\cite{hirsch2026note} & \texttt{none} \\
 \bottomrule
-\end{tabular}
-\vspace{-0.4em}
+\end{tabular}}
+\vspace{-0.3em}
 \begin{flushleft}
-\tiny Axiom key: \texttt{none} = zero axioms (8); \texttt{p} = \texttt{[propext]} (4); \texttt{p, Q} = \texttt{[propext, Quot.sound]} (6).
+\tiny Axiom key: \texttt{none} = zero axioms (8); \texttt{p} = \texttt{[propext]} (4); \texttt{p, Q} = \texttt{[propext, Quot.sound]} (6). Theorem~18 formalizes the finite reachability closure over the 8-node inductive type \texttt{Fig1Class} and 9 directed edges \texttt{Fig1Edge} of Hirsch~\cite{hirsch2026note} Fig.~1 (without Turing-machine semantics).
 \end{flushleft}
-\vspace{-0.8em}
-\end{table}
+\vspace{-0.6em}
+\end{table*}
 
 \begin{proposition}[Machine-Checked Structural Theorems]\label{prop:lean}
-The Lean~4.35.0 kernel establishes the following universal invariants:
+The Lean~4.35.0 kernel establishes all 18 universal invariants summarized in Table~\ref{tab:lean}:
 \begin{enumerate}[leftmargin=*,nosep]
-  \item \emph{Lex-Max Advice, Census, \& Pairing (Thms.~1--6):} Over inductive \texttt{List Bool}, \texttt{lexLt} is irreflexive, asymmetric, and trichotomous; any lex-max feasible string $a_n$ is unique and recovered bit-by-bit by \texttt{buildPrefixProbe}; \texttt{countPred} checksum equality forces $S$ to capture every $x \in U$ with $C(x) = \mathrm{true}$; and Cantor pairing $\pi(a, b) = (a+b)(a+b+1)/2 + b$ is globally injective on $\mathbb{N}^2$.
-  \item \emph{Loose-Tower Descent \& Section~6 Collapses (Thms.~10--18):} Structural induction on tower depth $d$ proves any wrong level-$d$ answer hits a missing witness at some level $1 \le j \le d$. For $p \ge 1$, $0^p \neq 1^p$ forces one fixed probe to refute $R_0$, collapsing the alternating dot-operator lattice at level~2; any mattering single loose query cannot lie outside the promise set; and testing $0^n$ uniquely pins down the $\SOUP$ pair $(b^*, w^*)$.
+  \item \emph{Lex-Max Advice, Mahaney Census, \& Pairing (Thms.~1--6):} Over inductive \texttt{List Bool}, \texttt{lexLt} is irreflexive, asymmetric, and trichotomous; any lex-max feasible string $a_n$ is unique, recovered bit-by-bit by \texttt{buildPrefixProbe}, and uniquely accepted by the $\mathsf{co}\text{-}\ONP$ tester $T$. By the indicator split $\texttt{countPred}\;C\;U = \texttt{countPred}(C\land \in_{\mathrm{b}} S)\;U + \texttt{countPred}(C\land \notin_{\mathrm{b}} S)\;U$, equality of the filtered count $\texttt{countPred}(\lambda x.\,C(x)\land \texttt{memNat}\;x\;S)\;U = \texttt{countPred}\;C\;U$ (which intrinsically restricts counting to elements of $U$ satisfying both $C$ and $x\in S$, avoiding overcounting duplicates or false positives) forces $\texttt{memNat}\;x\;S = \mathrm{true}$ for every $x \in U$ with $C(x)=\mathrm{true}$. Cantor pairing $\pi(a, b) = (a+b)(a+b+1)/2 + b$ is globally injective on $\mathbb{N}^2$.
+  \item \emph{Oblivious Bit Extraction \& Loose-Tower Round Cap (Thms.~7--9):} On any nonempty unambiguous slice with witness $w_n$, existential bit queries match $\texttt{bit}\;i\;w_n$ identically; on empty slices every query returns \texttt{false} (yielding default $0^{p(n)}$). In a depth-$d$ tower over query lengths $0..h$, uncovering $\ge 1$ of the $d(h+1)$ target witnesses per round caps termination at $\le d(h+1)$ rounds (specializing to $\le d$ rounds when each level uses a single witness length, $h=0$).
+  \item \emph{Tower Descent, Section~6 Collapses, \& Abstract Inclusion Closure (Thms.~10--18):} Structural induction on depth $d$ proves any wrong level-$d$ answer hits a missing witness at some level $1 \le j \le d$, with monotone branching $h(M+1)$. For $p \ge 1$, $0^p \neq 1^p$ forces a fixed probe to refute $R_0$, yielding a unique $(w_n, v_N)$ pair and collapsing the 4-class inductive lattice \texttt{DotClass} at level~2; any mattering single loose query cannot admit both consistent answers; length-regular tagging preserves obliviousness; testing $0^n$ yields a unique $\SOUP$ pair $(b_0, w_0)$; and \texttt{Fig1Sub} derives all six transitive inclusions in Hirsch~\cite{hirsch2026note} Fig.~1.
 \end{enumerate}
 \end{proposition}
 
@@ -110,8 +113,8 @@ The Lean~4.35.0 kernel establishes the following universal invariants:
 The verifier \texttt{OUH-CERT-1.0} (\texttt{src/ouh\_certifier.py}, \texttt{src/ouh\_exact.py}) uses pure Python integers, booleans, and bitstrings exclusively (source-audited for zero \texttt{float(}, \texttt{math.}, or \texttt{numpy}). Every payload enforces strict JSON typing (rejecting floats, int-as-bool, bool-as-int), nesting-depth cap $32$, control-character filtering, 2048-bit integer caps, and exact key sets across four modes:
 \begin{enumerate}[leftmargin=*,nosep]
   \item \textbf{Mode~1 (Lem.~3.1 Canonical Advice):} Independently runs the $L$-step $\mathsf{FP}^{\ONP}$ prefix search over \texttt{feasible\_encodings}, verifies exact step-by-step probes and bits, checks $a_n = \max_{\mathrm{lex}}$, and verifies $|\mathrm{Acc}_T| = 1$ for the $\mathsf{co}\text{-}\ONP$ tester.
-  \item \textbf{Mode~2 (Lem.~2.8 / Thm.~4.1 Mahaney Census \& $\OUP$):} Verifies tally census $c_m$, Cantor pairing $\pi(n, c_m)$ and query-code injectivity, strict oblivious unambiguity across all accepted $(x, w)$ pairs, and bit-by-bit witness extraction (defaulting to $0^p$ on empty slices).
-  \item \textbf{Mode~3 (Thm.~5.1 Loose Promise Tower):} Enumerates every consistent oracle at levels $0..d$ to verify loose $\mathsf{prOUP}$ semantics and out-of-promise invariance of $M$, executes Hirsch's exact round-by-round $\mathsf{FP}^{\NP}$ generator from $S^{(0)} = \emptyset$, verifies every round adds a missing true witness within $\le d$ rounds, and certifies $D(x, S^*) = M^{A_d}(x)$ on every input.
+  \item \textbf{Mode~2 (Lem.~2.8 / Thm.~4.1 Mahaney Census \& $\OUP$):} Verifies tally census $c_m$, Cantor pairing $\pi(a, b)$ evaluated at $(a, b) = (m, c_m)$ and query-code injectivity, strict oblivious unambiguity across all accepted $(x, w)$ pairs, and bit-by-bit witness extraction (defaulting to $0^p$ on empty slices).
+  \item \textbf{Mode~3 (Thm.~5.1 Loose Promise Tower):} Enumerates every consistent oracle at levels $0..d$ to verify loose $\mathsf{prOUP}$ semantics and out-of-promise invariance of $M$, executes Hirsch's exact round-by-round $\mathsf{FP}^{\NP}$ generator from $S^{(0)} = \emptyset$, verifies every round adds a missing true witness within the single-length ($h=0$) specialization $\le d(0+1) = d$ rounds, and certifies $D(x, S^*) = M^{A_d}(x)$ on every input.
   \item \textbf{Mode~4 (Sec.~6 Collapses, Tagging, \& $\SOUP$):} Exhaustively audits truth tables across three submodes: \texttt{dot\_op\_collapse} (Thm.~6.2 probes $(0^n, 0^p)/(0^n, 1^p)$ and unique pair $(w_n, v_N)$), \texttt{single\_loose\_query} (Lem.~6.4 guardedness on $T$ and Thm.~6.5 tagged language $A$), and \texttt{soup\_intersection} (Prop.~6.6 unique $(b^*, w^*)$ deciding $L$).
 \end{enumerate}
 
@@ -126,12 +129,12 @@ Running \texttt{run\_all\_experiments.py} generates 16 canonical certificates (4
 \end{figure}
 
 \paragraph{Canonical Advice \& Mahaney Census (Fig.~\ref{fig:adv}).}
-Mode~1 ($0.058$--$0.149\,\mathrm{ms}$) certifies prefix-search recovery and singleton $\mathsf{co}\text{-}\ONP$ testing across $L \in \{4, 5, 6, 8\}$ (recovering $a_n \in \{\texttt{1010}, \texttt{110011}, \texttt{11011100}, \texttt{01101}\}$). Mode~2 ($0.033$--$0.062\,\mathrm{ms}$) certifies Mahaney census checksums and oblivious witness extraction across nonempty slices ($w_n \in \{\texttt{1011}, \texttt{11010}, \texttt{111111}\}$) and the Theorem~4.1 empty-slice default (\texttt{0000}).
+Mode~1 ($0.058$--$0.149\,\mathrm{ms}$) certifies prefix-search recovery and singleton $\mathsf{co}\text{-}\ONP$ testing across $L \in \{4, 5, 6, 8\}$, recovering $a_n \in \{\texttt{1010}, \texttt{01101}, \texttt{110011}, \texttt{11011100}\}$ respectively. Mode~2 ($0.033$--$0.062\,\mathrm{ms}$) certifies Mahaney census checksums and oblivious witness extraction across nonempty slices ($w_n \in \{\texttt{1011}, \texttt{11010}, \texttt{111111}\}$) and the Theorem~4.1 empty-slice default (\texttt{0000}).
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{../figures/fig2_loose_tower_and_sec6.png}
-  \caption{(a) Theorem~5.1 loose promise-tower generator rounds and final witness-set sizes $|S|$ across depths $d \in \{1, 2, 3\}$ (every round uncovers a missing true witness, terminating in $d$ rounds). (b) Exhaustive truth-table verification counts across all four Section~6 certificates.}
+  \caption{(a) Theorem~5.1 loose promise-tower generator rounds and final witness-set sizes $|S|$ across depths $d \in \{1, 2, 3\}$ (single-length $h=0$ towers, so the $d(h+1)$ cap equals $d$ and every round uncovers a missing true witness). (b) Exhaustive truth-table verification counts across all four Section~6 certificates.}
   \label{fig:tower}
 \end{figure}
 
