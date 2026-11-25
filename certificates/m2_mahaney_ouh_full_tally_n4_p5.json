@@ -1,0 +1,47 @@
+{
+  "schema_version": "OUH-CERT-1.0",
+  "cert_id": "m2_mahaney_ouh_full_tally_n4_p5",
+  "mode": "mahaney_census_ouh_cert",
+  "reference": "Hirsch (2026) Lem. 2.8 & Thm. 4.1 (n=4, p=5)",
+  "payload": {
+    "input_len": 4,
+    "witness_len": 5,
+    "tally_bound_h": 16,
+    "tally_oracle_set": [
+      0,
+      4,
+      8,
+      12,
+      16
+    ],
+    "claimed_census_cm": 5,
+    "claimed_paired_checksum": 50,
+    "accepted_pairs": [
+      [
+        "0000",
+        "11010"
+      ],
+      [
+        "1010",
+        "11010"
+      ],
+      [
+        "1111",
+        "11010"
+      ],
+      [
+        "0101",
+        "11010"
+      ]
+    ],
+    "claimed_slice_nonempty": true,
+    "claimed_extracted_witness": "11010",
+    "claimed_bit_queries": [
+      true,
+      true,
+      false,
+      true,
+      false
+    ]
+  }
+}

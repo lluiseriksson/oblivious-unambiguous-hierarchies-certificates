@@ -1,0 +1,42 @@
+{
+  "schema_version": "OUH-CERT-1.0",
+  "cert_id": "m2_mahaney_ouh_nonempty_n3_p4",
+  "mode": "mahaney_census_ouh_cert",
+  "reference": "Hirsch (2026) Lem. 2.8 & Thm. 4.1 (nonempty slice)",
+  "payload": {
+    "input_len": 3,
+    "witness_len": 4,
+    "tally_bound_h": 12,
+    "tally_oracle_set": [
+      0,
+      2,
+      5,
+      9,
+      11
+    ],
+    "claimed_census_cm": 5,
+    "claimed_paired_checksum": 41,
+    "accepted_pairs": [
+      [
+        "001",
+        "1011"
+      ],
+      [
+        "010",
+        "1011"
+      ],
+      [
+        "111",
+        "1011"
+      ]
+    ],
+    "claimed_slice_nonempty": true,
+    "claimed_extracted_witness": "1011",
+    "claimed_bit_queries": [
+      true,
+      false,
+      true,
+      true
+    ]
+  }
+}

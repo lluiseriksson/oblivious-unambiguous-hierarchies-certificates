@@ -1,0 +1,68 @@
+{
+  "schema_version": "OUH-CERT-1.0",
+  "cert_id": "m1_canonical_advice_len8_max",
+  "mode": "canonical_advice_ogtd_cert",
+  "reference": "Hirsch (2026) Lemma 3.1 prefix search (L=8)",
+  "payload": {
+    "bit_len": 8,
+    "feasible_encodings": [
+      "01010101",
+      "10101010",
+      "11011011",
+      "11011100",
+      "00110011"
+    ],
+    "claimed_canonical_a_n": "11011100",
+    "claimed_prefix_queries": [
+      {
+        "step": 0,
+        "probe": "10000000",
+        "oracle_answer": true,
+        "bit": "1"
+      },
+      {
+        "step": 1,
+        "probe": "11000000",
+        "oracle_answer": true,
+        "bit": "1"
+      },
+      {
+        "step": 2,
+        "probe": "11100000",
+        "oracle_answer": false,
+        "bit": "0"
+      },
+      {
+        "step": 3,
+        "probe": "11010000",
+        "oracle_answer": true,
+        "bit": "1"
+      },
+      {
+        "step": 4,
+        "probe": "11011000",
+        "oracle_answer": true,
+        "bit": "1"
+      },
+      {
+        "step": 5,
+        "probe": "11011100",
+        "oracle_answer": true,
+        "bit": "1"
+      },
+      {
+        "step": 6,
+        "probe": "11011110",
+        "oracle_answer": false,
+        "bit": "0"
+      },
+      {
+        "step": 7,
+        "probe": "11011101",
+        "oracle_answer": false,
+        "bit": "0"
+      }
+    ],
+    "claimed_co_onp_accepted_count": 1
+  }
+}

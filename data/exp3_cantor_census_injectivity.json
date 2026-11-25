@@ -1,0 +1,40 @@
+{
+  "rows": [
+    {
+      "bound_h": 4,
+      "pairs_tested": 25,
+      "distinct_codes": 25,
+      "max_code": 40
+    },
+    {
+      "bound_h": 8,
+      "pairs_tested": 81,
+      "distinct_codes": 81,
+      "max_code": 144
+    },
+    {
+      "bound_h": 12,
+      "pairs_tested": 169,
+      "distinct_codes": 169,
+      "max_code": 312
+    },
+    {
+      "bound_h": 16,
+      "pairs_tested": 289,
+      "distinct_codes": 289,
+      "max_code": 544
+    },
+    {
+      "bound_h": 24,
+      "pairs_tested": 625,
+      "distinct_codes": 625,
+      "max_code": 1200
+    },
+    {
+      "bound_h": 32,
+      "pairs_tested": 1089,
+      "distinct_codes": 1089,
+      "max_code": 2112
+    }
+  ]
+}

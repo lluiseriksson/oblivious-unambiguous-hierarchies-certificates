@@ -1,0 +1,153 @@
+{
+  "schema_version": "OUH-CERT-1.0",
+  "cert_id": "m3_loose_tower_depth2_clean",
+  "mode": "loose_promise_tower_cert",
+  "reference": "Hirsch (2026) Theorem 5.1 depth-2 loose promise tower",
+  "payload": {
+    "depth": 2,
+    "inputs": [
+      "x0",
+      "x1",
+      "x2"
+    ],
+    "base_A0": {
+      "b0": false,
+      "b1": true
+    },
+    "levels": [
+      {
+        "queries": [
+          "q1_yes",
+          "q1_no",
+          "q1_oop"
+        ],
+        "witnesses": [
+          "w1_bad",
+          "w1_true"
+        ],
+        "promise_yes": [
+          "q1_yes"
+        ],
+        "promise_no": [
+          "q1_no"
+        ],
+        "true_witness": "w1_true",
+        "verifier": {
+          "q1_yes|w1_bad": {
+            "query": null,
+            "acc_if_0": false,
+            "acc_if_1": false
+          },
+          "q1_yes|w1_true": {
+            "query": "b1",
+            "acc_if_0": false,
+            "acc_if_1": true
+          },
+          "q1_no|w1_bad": {
+            "query": "b0",
+            "acc_if_0": false,
+            "acc_if_1": true
+          },
+          "q1_no|w1_true": {
+            "query": "b0",
+            "acc_if_0": false,
+            "acc_if_1": true
+          },
+          "q1_oop|w1_bad": {
+            "query": null,
+            "acc_if_0": false,
+            "acc_if_1": false
+          },
+          "q1_oop|w1_true": {
+            "query": "b1",
+            "acc_if_0": false,
+            "acc_if_1": true
+          }
+        }
+      },
+      {
+        "queries": [
+          "q2_yes",
+          "q2_no",
+          "q2_oop"
+        ],
+        "witnesses": [
+          "w2_bad",
+          "w2_true"
+        ],
+        "promise_yes": [
+          "q2_yes"
+        ],
+        "promise_no": [
+          "q2_no"
+        ],
+        "true_witness": "w2_true",
+        "verifier": {
+          "q2_yes|w2_bad": {
+            "query": null,
+            "acc_if_0": false,
+            "acc_if_1": false
+          },
+          "q2_yes|w2_true": {
+            "query": "q1_yes",
+            "acc_if_0": false,
+            "acc_if_1": true
+          },
+          "q2_no|w2_bad": {
+            "query": "q1_yes",
+            "acc_if_0": true,
+            "acc_if_1": false
+          },
+          "q2_no|w2_true": {
+            "query": "q1_no",
+            "acc_if_0": false,
+            "acc_if_1": true
+          },
+          "q2_oop|w2_bad": {
+            "query": "q1_oop",
+            "acc_if_0": false,
+            "acc_if_1": true
+          },
+          "q2_oop|w2_true": {
+            "query": null,
+            "acc_if_0": false,
+            "acc_if_1": false
+          }
+        }
+      }
+    ],
+    "top_machine": {
+      "x0": {
+        "query": "q2_yes",
+        "out_if_0": false,
+        "out_if_1": true
+      },
+      "x1": {
+        "query": "q2_no",
+        "out_if_0": false,
+        "out_if_1": true
+      },
+      "x2": {
+        "query": "q2_oop",
+        "out_if_0": true,
+        "out_if_1": true
+      }
+    },
+    "claimed_rounds": 2,
+    "claimed_every_round_adds_true_witness": true,
+    "claimed_final_S": [
+      [
+        "w1_true"
+      ],
+      [
+        "w2_true"
+      ]
+    ],
+    "claimed_decoder_matches": true,
+    "claimed_true_outputs": {
+      "x0": true,
+      "x1": false,
+      "x2": true
+    }
+  }
+}

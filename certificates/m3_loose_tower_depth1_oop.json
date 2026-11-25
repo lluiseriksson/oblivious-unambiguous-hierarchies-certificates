@@ -1,0 +1,100 @@
+{
+  "schema_version": "OUH-CERT-1.0",
+  "cert_id": "m3_loose_tower_depth1_oop",
+  "mode": "loose_promise_tower_cert",
+  "reference": "Hirsch (2026) Theorem 5.1 depth-1 loose promise tower",
+  "payload": {
+    "depth": 1,
+    "inputs": [
+      "x0",
+      "x1",
+      "x2"
+    ],
+    "base_A0": {
+      "b0": false,
+      "b1": true
+    },
+    "levels": [
+      {
+        "queries": [
+          "q1_yes",
+          "q1_no",
+          "q1_oop"
+        ],
+        "witnesses": [
+          "w_bad",
+          "w_ok"
+        ],
+        "promise_yes": [
+          "q1_yes"
+        ],
+        "promise_no": [
+          "q1_no"
+        ],
+        "true_witness": "w_ok",
+        "verifier": {
+          "q1_yes|w_bad": {
+            "query": null,
+            "acc_if_0": false,
+            "acc_if_1": false
+          },
+          "q1_yes|w_ok": {
+            "query": "b1",
+            "acc_if_0": false,
+            "acc_if_1": true
+          },
+          "q1_no|w_bad": {
+            "query": "b0",
+            "acc_if_0": false,
+            "acc_if_1": true
+          },
+          "q1_no|w_ok": {
+            "query": "b0",
+            "acc_if_0": false,
+            "acc_if_1": true
+          },
+          "q1_oop|w_bad": {
+            "query": null,
+            "acc_if_0": true,
+            "acc_if_1": true
+          },
+          "q1_oop|w_ok": {
+            "query": null,
+            "acc_if_0": false,
+            "acc_if_1": false
+          }
+        }
+      }
+    ],
+    "top_machine": {
+      "x0": {
+        "query": "q1_yes",
+        "out_if_0": false,
+        "out_if_1": true
+      },
+      "x1": {
+        "query": "q1_no",
+        "out_if_0": false,
+        "out_if_1": true
+      },
+      "x2": {
+        "query": "q1_oop",
+        "out_if_0": false,
+        "out_if_1": false
+      }
+    },
+    "claimed_rounds": 1,
+    "claimed_every_round_adds_true_witness": true,
+    "claimed_final_S": [
+      [
+        "w_ok"
+      ]
+    ],
+    "claimed_decoder_matches": true,
+    "claimed_true_outputs": {
+      "x0": true,
+      "x1": false,
+      "x2": false
+    }
+  }
+}

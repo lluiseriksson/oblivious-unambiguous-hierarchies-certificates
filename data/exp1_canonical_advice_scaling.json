@@ -1,0 +1,60 @@
+{
+  "rows": [
+    {
+      "bit_len": 2,
+      "universe_size": 4,
+      "feasible_count": 3,
+      "prefix_queries": 2,
+      "canonical_a_n": "10",
+      "co_onp_accepted": 1
+    },
+    {
+      "bit_len": 3,
+      "universe_size": 8,
+      "feasible_count": 6,
+      "prefix_queries": 3,
+      "canonical_a_n": "110",
+      "co_onp_accepted": 1
+    },
+    {
+      "bit_len": 4,
+      "universe_size": 16,
+      "feasible_count": 12,
+      "prefix_queries": 4,
+      "canonical_a_n": "1110",
+      "co_onp_accepted": 1
+    },
+    {
+      "bit_len": 5,
+      "universe_size": 32,
+      "feasible_count": 24,
+      "prefix_queries": 5,
+      "canonical_a_n": "11110",
+      "co_onp_accepted": 1
+    },
+    {
+      "bit_len": 6,
+      "universe_size": 64,
+      "feasible_count": 48,
+      "prefix_queries": 6,
+      "canonical_a_n": "111110",
+      "co_onp_accepted": 1
+    },
+    {
+      "bit_len": 7,
+      "universe_size": 128,
+      "feasible_count": 96,
+      "prefix_queries": 7,
+      "canonical_a_n": "1111110",
+      "co_onp_accepted": 1
+    },
+    {
+      "bit_len": 8,
+      "universe_size": 256,
+      "feasible_count": 192,
+      "prefix_queries": 8,
+      "canonical_a_n": "11111110",
+      "co_onp_accepted": 1
+    }
+  ]
+}

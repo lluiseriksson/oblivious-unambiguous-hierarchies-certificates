@@ -1,0 +1,20 @@
+import ObliviousUnambiguous
+
+#print axioms ObliviousUnambiguous.lex_lt_irrefl_and_asymm
+#print axioms ObliviousUnambiguous.canonical_advice_unique
+#print axioms ObliviousUnambiguous.prefix_search_bit_recovery
+#print axioms ObliviousUnambiguous.co_onp_tester_singleton
+#print axioms ObliviousUnambiguous.mahaney_census_exact_subset
+#print axioms ObliviousUnambiguous.cantor_pairing_injective
+#print axioms ObliviousUnambiguous.oblivious_witness_bit_extraction
+#print axioms ObliviousUnambiguous.oblivious_empty_slice_default_zero
+#print axioms ObliviousUnambiguous.loose_tower_round_bound
+#print axioms ObliviousUnambiguous.loose_tower_disagreement_descent
+#print axioms ObliviousUnambiguous.loose_generator_set_growth_monotone
+#print axioms ObliviousUnambiguous.dot_op_co_oup_probe_refutation
+#print axioms ObliviousUnambiguous.dot_op_collapse_unique_pair
+#print axioms ObliviousUnambiguous.dot_op_hierarchy_idempotence
+#print axioms ObliviousUnambiguous.single_loose_query_guarded
+#print axioms ObliviousUnambiguous.input_tagging_preserves_obliviousness
+#print axioms ObliviousUnambiguous.soup_unique_bit_witness
+#print axioms ObliviousUnambiguous.class_containment_chain_complete

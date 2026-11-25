@@ -1,0 +1,27 @@
+{
+  "schema_version": "OUH-CERT-1.0",
+  "cert_id": "m2_mahaney_ouh_empty_slice_zero",
+  "mode": "mahaney_census_ouh_cert",
+  "reference": "Hirsch (2026) Thm. 4.1 empty slice -> 0^{p(n)}",
+  "payload": {
+    "input_len": 3,
+    "witness_len": 4,
+    "tally_bound_h": 10,
+    "tally_oracle_set": [
+      1,
+      3,
+      7
+    ],
+    "claimed_census_cm": 3,
+    "claimed_paired_checksum": 24,
+    "accepted_pairs": [],
+    "claimed_slice_nonempty": false,
+    "claimed_extracted_witness": "0000",
+    "claimed_bit_queries": [
+      false,
+      false,
+      false,
+      false
+    ]
+  }
+}

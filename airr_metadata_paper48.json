@@ -1,0 +1,18 @@
+{
+  "title": "Certified Verification of Input-Oblivious Unambiguous Hierarchies",
+  "authors": ["Lluis Eriksson"],
+  "abstract": "Edward A. Hirsch (arXiv:2611.33126, Nov 2026) analyzed input-oblivious unambiguous complexity hierarchies built from OUP, proving that OUH <= P^{TALLY cap NP} <= P^{ONP}_|| (Thm. 4.1), the loose promise-oracle hierarchy satisfies OUH^bullet <= OGTD[NP] = OUGTD[FP^{ONP}, co-ONP, P] = P/OptP <= OUM cap P^{ONP} (Lem. 3.1, Thm. 5.1), the alternating oblivious unambiguous dot-operator hierarchy collapses to OUP cup co-OUP at level 2 (Thm. 6.2, Cor. 6.3), single loose promise queries reduce to language queries (Thm. 6.5), and SOUP = OUP cap co-OUP (Prop. 6.6). We construct a standalone zero-dependency Lean 4.35.0 formalization of 18 core lexicographic-advice, Mahaney-census, Cantor-pairing, loose-tower descent, dot-operator collapse, guardedness, and SOUP theorems (zero sorry, zero warnings, zero Classical.choice) paired with an exact discrete four-mode certificate verifier (OUH-CERT-1.0). Across 16 canonical certificates (0.033-0.210 ms, total 1.64 ms), all invariants replay identically while rejecting 60/60 live adversarial forgery attacks.",
+  "category": "cs.CC",
+  "license": "CC-BY-4.0",
+  "code_license": "MIT",
+  "repository_url": "https://github.com/lluiseriksson/oblivious-unambiguous-hierarchies-certificates",
+  "release_tag": "v1.0.0",
+  "operator_conflict": true,
+  "ai_assistance_disclosure": "Prepared by sole author Lluis Eriksson with AI coding, formalization, and drafting assistance from Google Antigravity; all Lean 4.35.0 proofs, exact discrete certificates, and adversarial tests were independently compiled and machine-verified locally.",
+  "target_reference": {
+    "arxiv_id": "2611.33126",
+    "authors": ["Edward A. Hirsch"],
+    "title": "A note on input-oblivious unambiguous hierarchies",
+    "date": "2026-11-24"
+  }
+}

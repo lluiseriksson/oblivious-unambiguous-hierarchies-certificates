@@ -1,0 +1,57 @@
+{
+  "schema_version": "OUH-CERT-1.0",
+  "cert_id": "m1_canonical_advice_len6_dense",
+  "mode": "canonical_advice_ogtd_cert",
+  "reference": "Hirsch (2026) Lemma 3.1 & Cor. 3.2 (L=6)",
+  "payload": {
+    "bit_len": 6,
+    "feasible_encodings": [
+      "000111",
+      "011010",
+      "101101",
+      "110010",
+      "110011",
+      "100001"
+    ],
+    "claimed_canonical_a_n": "110011",
+    "claimed_prefix_queries": [
+      {
+        "step": 0,
+        "probe": "100000",
+        "oracle_answer": true,
+        "bit": "1"
+      },
+      {
+        "step": 1,
+        "probe": "110000",
+        "oracle_answer": true,
+        "bit": "1"
+      },
+      {
+        "step": 2,
+        "probe": "111000",
+        "oracle_answer": false,
+        "bit": "0"
+      },
+      {
+        "step": 3,
+        "probe": "110100",
+        "oracle_answer": false,
+        "bit": "0"
+      },
+      {
+        "step": 4,
+        "probe": "110010",
+        "oracle_answer": true,
+        "bit": "1"
+      },
+      {
+        "step": 5,
+        "probe": "110011",
+        "oracle_answer": true,
+        "bit": "1"
+      }
+    ],
+    "claimed_co_onp_accepted_count": 1
+  }
+}

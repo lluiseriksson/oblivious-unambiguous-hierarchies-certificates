@@ -1,0 +1,60 @@
+{
+  "schema_version": "OUH-CERT-1.0",
+  "cert_id": "m4_single_loose_query_tagging",
+  "mode": "dot_op_single_query_soup_cert",
+  "reference": "Hirsch (2026) Lemma 6.4 & Theorem 6.5 (OUP^{prOUP[1]} = OUP^{OUP[1]})",
+  "payload": {
+    "submode": "single_loose_query",
+    "inputs": [
+      "x0",
+      "x1",
+      "x2"
+    ],
+    "witnesses": [
+      "w0",
+      "w1"
+    ],
+    "true_witness": "w1",
+    "language_L": {
+      "x0": true,
+      "x1": false,
+      "x2": true
+    },
+    "promise_yes": [
+      "q_yes"
+    ],
+    "promise_no": [
+      "q_no"
+    ],
+    "out_of_promise": [
+      "q_oop1",
+      "q_oop2"
+    ],
+    "query_map": {
+      "x0|w0": "q_oop1",
+      "x0|w1": "q_yes",
+      "x1|w0": "q_oop2",
+      "x1|w1": "q_no",
+      "x2|w0": "q_oop1",
+      "x2|w1": "q_yes"
+    },
+    "verifier_if_0": {
+      "x0|w0": false,
+      "x0|w1": false,
+      "x1|w0": false,
+      "x1|w1": false,
+      "x2|w0": false,
+      "x2|w1": false
+    },
+    "verifier_if_1": {
+      "x0|w0": false,
+      "x0|w1": true,
+      "x1|w0": false,
+      "x1|w1": true,
+      "x2|w0": false,
+      "x2|w1": true
+    },
+    "claimed_mattering_set_size": 3,
+    "claimed_tagged_A_size": 2
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "certificates": [
+    {
+      "cert_id": "m1_canonical_advice_len4_sparse",
+      "mode": "canonical_advice_ogtd_cert",
+      "verified": true,
+      "verify_ns": 88300,
+      "summary": {
+        "bit_len": 4,
+        "feasible_count": 4,
+        "canonical_a_n": "1010",
+        "co_onp_unique": true,
+        "cert_id": "m1_canonical_advice_len4_sparse",
+        "mode": "canonical_advice_ogtd_cert"
+      }
+    },
+    {
+      "cert_id": "m1_canonical_advice_len6_dense",
+      "mode": "canonical_advice_ogtd_cert",
+      "verified": true,
+      "verify_ns": 85200,
+      "summary": {
+        "bit_len": 6,
+        "feasible_count": 6,
+        "canonical_a_n": "110011",
+        "co_onp_unique": true,
+        "cert_id": "m1_canonical_advice_len6_dense",
+        "mode": "canonical_advice_ogtd_cert"
+      }
+    },
+    {
+      "cert_id": "m1_canonical_advice_len8_max",
+      "mode": "canonical_advice_ogtd_cert",
+      "verified": true,
+      "verify_ns": 149100,
+      "summary": {
+        "bit_len": 8,
+        "feasible_count": 5,
+        "canonical_a_n": "11011100",
+        "co_onp_unique": true,
+        "cert_id": "m1_canonical_advice_len8_max",
+        "mode": "canonical_advice_ogtd_cert"
+      }
+    },
+    {
+      "cert_id": "m1_canonical_advice_singleton",
+      "mode": "canonical_advice_ogtd_cert",
+      "verified": true,
+      "verify_ns": 57800,
+      "summary": {
+        "bit_len": 5,
+        "feasible_count": 1,
+        "canonical_a_n": "01101",
+        "co_onp_unique": true,
+        "cert_id": "m1_canonical_advice_singleton",
+        "mode": "canonical_advice_ogtd_cert"
+      }
+    },
+    {
+      "cert_id": "m2_mahaney_ouh_nonempty_n3_p4",
+      "mode": "mahaney_census_ouh_cert",
+      "verified": true,
+      "verify_ns": 61900,
+      "summary": {
+        "census_cm": 5,
+        "slice_nonempty": true,
+        "extracted_witness": "1011",
+        "accepted_inputs": 3,
+        "cert_id": "m2_mahaney_ouh_nonempty_n3_p4",
+        "mode": "mahaney_census_ouh_cert"
+      }
+    },
+    {
+      "cert_id": "m2_mahaney_ouh_empty_slice_zero",
+      "mode": "mahaney_census_ouh_cert",
+      "verified": true,
+      "verify_ns": 33000,
+      "summary": {
+        "census_cm": 3,
+        "slice_nonempty": false,
+        "extracted_witness": "0000",
+        "accepted_inputs": 0,
+        "cert_id": "m2_mahaney_ouh_empty_slice_zero",
+        "mode": "mahaney_census_ouh_cert"
+      }
+    },
+    {
+      "cert_id": "m2_mahaney_ouh_full_tally_n4_p5",
+      "mode": "mahaney_census_ouh_cert",
+      "verified": true,
+      "verify_ns": 56000,
+      "summary": {
+        "census_cm": 5,
+        "slice_nonempty": true,
+        "extracted_witness": "11010",
+        "accepted_inputs": 4,
+        "cert_id": "m2_mahaney_ouh_full_tally_n4_p5",
+        "mode": "mahaney_census_ouh_cert"
+      }
+    },
+    {
+      "cert_id": "m2_mahaney_ouh_all_ones_witness",
+      "mode": "mahaney_census_ouh_cert",
+      "verified": true,
+      "verify_ns": 49600,
+      "summary": {
+        "census_cm": 2,
+        "slice_nonempty": true,
+        "extracted_witness": "111111",
+        "accepted_inputs": 2,
+        "cert_id": "m2_mahaney_ouh_all_ones_witness",
+        "mode": "mahaney_census_ouh_cert"
+      }
+    },
+    {
+      "cert_id": "m3_loose_tower_depth1_oop",
+      "mode": "loose_promise_tower_cert",
+      "verified": true,
+      "verify_ns": 126400,
+      "summary": {
+        "depth": 1,
+        "rounds": 1,
+        "final_S_sizes": [
+          1
+        ],
+        "decoder_matches": true,
+        "cert_id": "m3_loose_tower_depth1_oop",
+        "mode": "loose_promise_tower_cert"
+      }
+    },
+    {
+      "cert_id": "m3_loose_tower_depth2_clean",
+      "mode": "loose_promise_tower_cert",
+      "verified": true,
+      "verify_ns": 172000,
+      "summary": {
+        "depth": 2,
+        "rounds": 2,
+        "final_S_sizes": [
+          1,
+          1
+        ],
+        "decoder_matches": true,
+        "cert_id": "m3_loose_tower_depth2_clean",
+        "mode": "loose_promise_tower_cert"
+      }
+    },
+    {
+      "cert_id": "m3_loose_tower_depth2_spurious_oop",
+      "mode": "loose_promise_tower_cert",
+      "verified": true,
+      "verify_ns": 209600,
+      "summary": {
+        "depth": 2,
+        "rounds": 2,
+        "final_S_sizes": [
+          1,
+          1
+        ],
+        "decoder_matches": true,
+        "cert_id": "m3_loose_tower_depth2_spurious_oop",
+        "mode": "loose_promise_tower_cert"
+      }
+    },
+    {
+      "cert_id": "m3_loose_tower_depth3_descent",
+      "mode": "loose_promise_tower_cert",
+      "verified": true,
+      "verify_ns": 190000,
+      "summary": {
+        "depth": 3,
+        "rounds": 3,
+        "final_S_sizes": [
+          1,
+          1,
+          1
+        ],
+        "decoder_matches": true,
+        "cert_id": "m3_loose_tower_depth3_descent",
+        "mode": "loose_promise_tower_cert"
+      }
+    },
+    {
+      "cert_id": "m4_dot_op_collapse_probe_1p",
+      "mode": "dot_op_single_query_soup_cert",
+      "verified": true,
+      "verify_ns": 97800,
+      "summary": {
+        "submode": "dot_op_collapse",
+        "unique_pair": "(00, 10)",
+        "probe_ok": true,
+        "cert_id": "m4_dot_op_collapse_probe_1p",
+        "mode": "dot_op_single_query_soup_cert"
+      }
+    },
+    {
+      "cert_id": "m4_dot_op_collapse_both_probes",
+      "mode": "dot_op_single_query_soup_cert",
+      "verified": true,
+      "verify_ns": 117800,
+      "summary": {
+        "submode": "dot_op_collapse",
+        "unique_pair": "(10, 01)",
+        "probe_ok": true,
+        "cert_id": "m4_dot_op_collapse_both_probes",
+        "mode": "dot_op_single_query_soup_cert"
+      }
+    },
+    {
+      "cert_id": "m4_single_loose_query_tagging",
+      "mode": "dot_op_single_query_soup_cert",
+      "verified": true,
+      "verify_ns": 71600,
+      "summary": {
+        "submode": "single_loose_query",
+        "mattering_size": 3,
+        "tagged_A_size": 2,
+        "cert_id": "m4_single_loose_query_tagging",
+        "mode": "dot_op_single_query_soup_cert"
+      }
+    },
+    {
+      "cert_id": "m4_soup_equals_oup_inter_co_oup",
+      "mode": "dot_op_single_query_soup_cert",
+      "verified": true,
+      "verify_ns": 78700,
+      "summary": {
+        "submode": "soup_intersection",
+        "soup_pair": "(0, 11)",
+        "cert_id": "m4_soup_equals_oup_inter_co_oup",
+        "mode": "dot_op_single_query_soup_cert"
+      }
+    }
+  ]
+}

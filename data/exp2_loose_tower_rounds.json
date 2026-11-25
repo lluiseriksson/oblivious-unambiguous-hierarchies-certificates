@@ -1,0 +1,48 @@
+{
+  "rows": [
+    {
+      "depth": 1,
+      "rounds": 1,
+      "final_S_sizes": [
+        1
+      ],
+      "decoder_matches": true,
+      "cert_id": "m3_loose_tower_depth1_oop",
+      "mode": "loose_promise_tower_cert"
+    },
+    {
+      "depth": 2,
+      "rounds": 2,
+      "final_S_sizes": [
+        1,
+        1
+      ],
+      "decoder_matches": true,
+      "cert_id": "m3_loose_tower_depth2_clean",
+      "mode": "loose_promise_tower_cert"
+    },
+    {
+      "depth": 2,
+      "rounds": 2,
+      "final_S_sizes": [
+        1,
+        1
+      ],
+      "decoder_matches": true,
+      "cert_id": "m3_loose_tower_depth2_spurious_oop",
+      "mode": "loose_promise_tower_cert"
+    },
+    {
+      "depth": 3,
+      "rounds": 3,
+      "final_S_sizes": [
+        1,
+        1,
+        1
+      ],
+      "decoder_matches": true,
+      "cert_id": "m3_loose_tower_depth3_descent",
+      "mode": "loose_promise_tower_cert"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "OUH-CERT-1.0",
+  "cert_id": "m2_mahaney_ouh_all_ones_witness",
+  "mode": "mahaney_census_ouh_cert",
+  "reference": "Hirsch (2026) Thm. 4.1 all-ones oblivious witness",
+  "payload": {
+    "input_len": 2,
+    "witness_len": 6,
+    "tally_bound_h": 8,
+    "tally_oracle_set": [
+      2,
+      6
+    ],
+    "claimed_census_cm": 2,
+    "claimed_paired_checksum": 12,
+    "accepted_pairs": [
+      [
+        "01",
+        "111111"
+      ],
+      [
+        "10",
+        "111111"
+      ]
+    ],
+    "claimed_slice_nonempty": true,
+    "claimed_extracted_witness": "111111",
+    "claimed_bit_queries": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  }
+}
